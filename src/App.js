@@ -10,9 +10,10 @@ import Footer from "./components/layout/Footer";
 import Homepage from "./views/Homepage";
 import Property from "./views/Property";
 import Signup from "./views/auth/Signup";
+import Login from "./views/auth/Login";
 import "./css/style.css";
 import store from "./store";
-import { setCurrentUser } from './actions/authActions';
+import { setCurrentUser } from "./actions/authActions";
 // check for token
 if (localStorage.proLiteToken) {
   // set auth token header auth
@@ -30,11 +31,12 @@ class App extends Component {
         <ToastContainer />
         <BrowserRouter>
           <div className="App">
-            <Route exact path="/signup" component={Signup} />
-            <Navbar />
+          { location.pathname == '/login' || location.pathname == '/signup' ? null :  <Navbar/> }
             <Switch>
               <Route exact path="/" component={Homepage} />
               <Route exact path="/property" component={Property} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/login" component={Login} />
             </Switch>
             <Footer />
           </div>
