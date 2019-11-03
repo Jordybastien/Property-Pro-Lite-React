@@ -1,50 +1,61 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from 'prop-types';
+import { logoutUser } from '../../actions/authActions';
 class Navbar extends Component {
+  onLogoutClick(e) {
+    e.preventDefault();
+    this.props.logoutUser();
+  }
   render() {
+    const { isAuthenticated } = this.props.auth;
+    const guestLinks = (
+      <React.Fragment>
+        <li>
+          <Link to="/signup">Sign Up</Link>
+        </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      </React.Fragment>
+    );
+    const authLinks = (
+      <React.Fragment>
+        <li>
+          <Link to="/dashboard"> Dashboard</Link>
+        </li>
+        <li>
+          <a href="/logout"onClick={this.onLogoutClick.bind(this)}>Logout</a>
+        </li>
+      </React.Fragment>
+    );
     return (
       <React.Fragment>
         <nav className="navbar menulg">
           <div className="container">
-            <a className="site-title" href="/">
+            <Link className="site-title" to="/">
               Property Pro Lite
-            </a>
-
+            </Link>
             <ul className="menu-lg">
               <li>
-                <a href="/properties"> Properties</a>
+                <Link to="/properties"> Properties</Link>
               </li>
-              <li>
-                <a href="/dashboard"> Dashboard</a>
-              </li>
-              <li>
-                <a href="/signup">Sign Up</a>
-              </li>
-              <li>
-                <a href="/login">Login</a>
-              </li>
+              {isAuthenticated ? authLinks : guestLinks}
             </ul>
           </div>
         </nav>
         <nav className="navbar menusm">
           <div className="container">
-            <a className="site-title" href="/">
+            <Link className="site-title" to="/">
               Property Pro Lite
-            </a>
+            </Link>
 
             <ul className="menu-lg addonsul">
               <li>
-                <a href="/properties"> Properties</a>
+                <Link to="/properties"> Properties</Link>
               </li>
-              <li>
-                <a href="/dashboard"> Dashboard</a>
-              </li>
-              <li>
-                <a href="/signup">Sign Up</a>
-              </li>
-              <li>
-                <a href="/login">Login</a>
-              </li>
+              {isAuthenticated ? authLinks : guestLinks}
             </ul>
           </div>
         </nav>
@@ -52,5 +63,11 @@ class Navbar extends Component {
     );
   }
 }
-
-export default Navbar;
+Navbar.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(mapStateToProps, { logoutUser })(Navbar);

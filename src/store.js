@@ -5,10 +5,6 @@ import rootReducer from "./reducers";
 const initialState = {};
 
 const middleware = [thunk];
-// [] empty reducer
-// {} initialState
-// first parameter () => [] is the routeReducer
-// compose for implementing the redux dev tools
 const store = createStore(
   rootReducer,
   initialState,

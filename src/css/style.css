@@ -1,3 +1,20 @@
+.invalid-feedback{
+    color:red;
+    font-size: 0.9em;
+    font-style: italic;
+}
+.signup-fields-error {
+    border: 1px solid #cacfe7;
+    color: #3b4781;
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    background-color: #fff;
+    border: 1px solid #d90f45;
+    border-radius: .25rem;
+    font-family: inherit;
+    height: 35px;
+}
 .ftdash{
     margin-top: 0px!important;
 }
