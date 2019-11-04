@@ -1,2 +1,4 @@
 # Property-Pro-Lite-React
 Property Pro Lite is a platform where people can create and/or search properties for sale or rent.
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/5878bbc3e7a3b05c04f4/maintainability)](https://codeclimate.com/github/Jordybastien/Property-Pro-Lite-React/maintainability)

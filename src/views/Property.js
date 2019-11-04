@@ -1,8 +1,31 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getPropertyById } from "../actions/propertyActions";
+import Properties from "../components/homepage/Properties";
 
 class Property extends Component {
+  constructor() {
+    super();
+    this.state = {
+      propertyFound: false,
+      singleProperty: {}
+    };
+  }
+  componentDidMount() {
+    if (this.props.match.params.id) {
+      this.props.getPropertyById(this.props.match.params.id);
+    }
+  }
+  componentWillReceiveProps({ property }) {
+    const singleProperty = property.singleProperty.data[0];
+    this.setState({ singleProperty });
+    if (this.props.match.params.id) {
+      this.props.getPropertyById(this.props.match.params.id);
+    }
+  }
   render() {
-    console.log("Reached here");
+    const { data } = this.props.property.singleProperty;
     return (
       <React.Fragment>
         <section id="property-container">
@@ -10,56 +33,68 @@ class Property extends Component {
           <div className="content">
             <div className="display">
               <div className="row">
-                <img src="./src/img/slides/img3.jpg" />
-                <span className="available">Available</span>
+                <img src={data ? data[0].image_url : null} />
+                <span className={data ? data[0].status : null}>
+                  {data ? data[0].status : null}
+                </span>
                 <div className="info">
                   <div className="">
                     <div className="info-item">
                       {" "}
                       <span className="info-item-col-1">
                         <img
-                          src="./src/img/icons/price.png"
+                          src="../src/img/icons/price.png"
                           className="infopic"
                         />
                         Price:{" "}
                       </span>
-                      <span className="info-item-col-2">15,000 Frw</span>
+                      <span className="info-item-col-2">
+                        {data ? data[0].price : null} Frw
+                      </span>
                     </div>
                     <br />
                     <div className="info-item">
                       {" "}
                       <span className="info-item-col-1">
                         <img
-                          src="./src/img/icons/state.png"
+                          src="../src/img/icons/state.png"
                           className="infopic"
                         />
                         State:{" "}
                       </span>
-                      <span className="info-item-col-2">Kigali </span>
+                      <span className="info-item-col-2">
+                        {data ? data[0].state : null}{" "}
+                      </span>
                     </div>
                     <br />
                     <div className="info-item">
                       {" "}
                       <span className="info-item-col-1">
                         <img
-                          src="./src/img/icons/city.png"
+                          src="../src/img/icons/city.png"
                           className="infopic"
                         />
                         City:
                       </span>
-                      <span className="info-item-col-2"> Kigali</span>
+                      <span className="info-item-col-2">
+                        {" "}
+                        {data ? data[0].city : null}
+                      </span>
                     </div>
                     <br />
                     <div className="info-item">
                       {" "}
                       <span className="info-item-col-1">
                         <img
-                          src="./src/img/icons/type.png"
+                          src="../src/img/icons/type.png"
                           className="infopic"
                         />
                         Type:
                       </span>
-                      <span className="info-item-col-2"> 2 Bedroom</span>
+                      <span className="info-item-col-2">
+                        {" "}
+                        {data ? data[0].type : null}
+                      </span>
                     </div>
                     <br />
 
@@ -96,95 +131,7 @@ class Property extends Component {
             </div>
             <div className="more-props">
               <h3 className="underline">More Properties</h3>
-
-              <a href="property.html">
-                <div className="box">
-                  <img src="./src/img/properties/8.jpg" />
-                  <span className="available">Available</span>
-                  <span className="price">
-                    <img src="./src/img/icons/price.png" />
-                    Price: RWF 15,000/per night
-                  </span>
-                  <span className="state">
-                    <img src="./src/img/icons/state.png" />
-                    State: Kigali
-                  </span>
-                  <span className="city">
-                    <img src="./src/img/icons/city.png" />
-                    City: Kigali
-                  </span>
-                  <span className="type">
-                    <img src="./src/img/icons/type.png" />
-                    Type: 2 bedroom
-                  </span>
-                </div>
-              </a>
-              <a href="property.html">
-                <div className="box">
-                  <img src="./src/img/properties/5.jpg" />
-                  <span className="available">Available</span>
-                  <span className="price">
-                    <img src="./src/img/icons/price.png" />
-                    Price: RWF 15,000/per night
-                  </span>
-                  <span className="state">
-                    <img src="./src/img/icons/state.png" />
-                    State: Kigali
-                  </span>
-                  <span className="city">
-                    <img src="./src/img/icons/city.png" />
-                    City: Kigali
-                  </span>
-                  <span className="type">
-                    <img src="./src/img/icons/type.png" />
-                    Type: 2 bedroom
-                  </span>
-                </div>
-              </a>
-              <a href="property.html">
-                <div className="box">
-                  <img src="./src/img/properties/10.jpg" />
-                  <span className="available">Available</span>
-                  <span className="price">
-                    <img src="./src/img/icons/price.png" />
-                    Price: RWF 15,000/per night
-                  </span>
-                  <span className="state">
-                    <img src="./src/img/icons/state.png" />
-                    State: Kigali
-                  </span>
-                  <span className="city">
-                    <img src="./src/img/icons/city.png" />
-                    City: Kigali
-                  </span>
-                  <span className="type">
-                    <img src="./src/img/icons/type.png" />
-                    Type: 2 bedroom
-                  </span>
-                </div>
-              </a>
-              <a href="property.html">
-                <div className="box">
-                  <img src="./src/img/properties/7.jpg" />
-                  <span className="available">Available</span>
-                  <span className="price">
-                    <img src="./src/img/icons/price.png" />
-                    Price: RWF 15,000/per night
-                  </span>
-                  <span className="state">
-                    <img src="./src/img/icons/state.png" />
-                    State: Kigali
-                  </span>
-                  <span className="city">
-                    <img src="./src/img/icons/city.png" />
-                    City: Kigali
-                  </span>
-                  <span className="type">
-                    <img src="./src/img/icons/type.png" />
-                    Type: 2 bedroom
-                  </span>
-                </div>
-              </a>
+              <Properties />
             </div>
           </div>
           <button className="button-flag">Flag as fraudulent</button>
@@ -193,5 +140,11 @@ class Property extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  property: state.property
+});
 
-export default Property;
+export default connect(
+  mapStateToProps,
+  { getPropertyById }
+)(Property);

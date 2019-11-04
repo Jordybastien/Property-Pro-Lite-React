@@ -22,9 +22,9 @@ class Navbar extends Component {
     );
     const authLinks = (
       <React.Fragment>
-        <li>
+        {/* <li>
           <Link to="/dashboard"> Dashboard</Link>
-        </li>
+        </li> */}
         <li>
           <a href="/logout"onClick={this.onLogoutClick.bind(this)}>Logout</a>
         </li>
@@ -39,7 +39,7 @@ class Navbar extends Component {
             </Link>
             <ul className="menu-lg">
               <li>
-                <Link to="/properties"> Properties</Link>
+                <Link to="/allProperties"> Properties</Link>
               </li>
               {isAuthenticated ? authLinks : guestLinks}
             </ul>

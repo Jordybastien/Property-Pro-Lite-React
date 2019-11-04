@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import Navbar from "./components/layout/Navbar";
@@ -12,9 +12,11 @@ import Property from "./views/Property";
 import Signup from "./views/auth/Signup";
 import Login from "./views/auth/Login";
 import "./css/style.css";
-import store from "./store";
+import configureStore from "./store";
 import { setCurrentUser } from "./actions/authActions";
+import AllProperties from './views/AllProperties';
 // check for token
+const store = configureStore();
 if (localStorage.proLiteToken) {
   // set auth token header auth
   setAuthToken(localStorage.proLiteToken);
@@ -37,6 +39,7 @@ class App extends Component {
               <Route exact path="/property/:id" component={Property} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/allProperties" component={AllProperties}/>
             </Switch>
             <Footer />
           </div>
