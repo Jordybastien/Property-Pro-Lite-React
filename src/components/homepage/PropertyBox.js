@@ -15,19 +15,19 @@ const PropertyBox = ({ id, image, status, price, state, city, type }) => {
           <img src={image} className="respic" />
           <span className={checkedStatus}>{status}</span>
           <span className="price">
-            <img src="./src/img/icons/price.png" />
+            <img src="https://res.cloudinary.com/dodfpnbik/image/upload/v1572855020/price_xlrbdp.png" />
             Price: RWF {price}/per night
           </span>
           <span className="state">
-            <img src="./src/img/icons/state.png" />
+            <img src="https://res.cloudinary.com/dodfpnbik/image/upload/v1572855021/state_hxq0gu.png" />
             State: {state}
           </span>
           <span className="city">
-            <img src="./src/img/icons/city.png" />
+            <img src="https://res.cloudinary.com/dodfpnbik/image/upload/v1572855020/city_onuehv.png" />
             City: {city}
           </span>
           <span className="type">
-            <img src="./src/img/icons/type.png" />
+            <img src="https://res.cloudinary.com/dodfpnbik/image/upload/v1572855020/type_mcs8vx.png" />
             Type: {type}
           </span>
         </div>

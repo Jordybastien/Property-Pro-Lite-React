@@ -13,35 +13,28 @@ class Properties extends Component {
   componentDidMount() {
     this.props.fetchAllProperties();
   }
-  // componentWillReceiveProps({ properties }) {
-  //   this.setState({ properties });
-  // }
+  componentWillReceiveProps({ properties }) {
+    this.setState({ properties });
+  }
   render() {
     const { properties } = this.props.properties;
-    console.log(properties)
+    console.log(properties);
     return (
       <React.Fragment>
-        <section id="properties">
-          <h1>Properties</h1>
-          <h3>Here below are properties</h3>
-          <div className="container">
-            {properties.map(property => (
-              <Property
-                key={property.id}
-                id={property.id}
-                image={property.image_url}
-                status={property.status}
-                price={property.price}
-                state={property.state}
-                city={property.city}
-                type={property.type}
-              />
-            ))}
-          </div>
-          <a type="submit" href="/properties" className="button-1">
-            Show all properties
-          </a>
-        </section>
+        <div className="container">
+          {properties.map(property => (
+            <Property
+              key={property.id}
+              id={property.id}
+              image={property.image_url}
+              status={property.status}
+              price={property.price}
+              state={property.state}
+              city={property.city}
+              type={property.type}
+            />
+          )).reverse().splice(0,4)}
+        </div>
       </React.Fragment>
     );
   }
