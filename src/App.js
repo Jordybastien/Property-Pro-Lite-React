@@ -34,7 +34,7 @@ class App extends Component {
           { location.pathname == '/login' || location.pathname == '/signup' ? null :  <Navbar/> }
             <Switch>
               <Route exact path="/" component={Homepage} />
-              <Route exact path="/property" component={Property} />
+              <Route exact path="/property/:id" component={Property} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />
             </Switch>

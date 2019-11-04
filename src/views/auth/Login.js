@@ -23,16 +23,16 @@ class Login extends Component {
       window.location.href = "/";
     }
   }
-  componentWillReceiveProps({auth, errors}) {
+  componentWillReceiveProps({ auth, errors }) {
     this.setState({ errors });
-    if (errors.error && typeof errors.error !== 'object') {
-        toast.error(errors.error, {
-            position: toast.POSITION.TOP_RIGHT
-          });
+    if (errors.error && typeof errors.error !== "object") {
+      toast.error(errors.error, {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
-    if(auth.isAuthenticated){
-        window.location.href="/";
-      }
+    if (auth.isAuthenticated) {
+      window.location.href = "/";
+    }
   }
   // to be used in the future  instead of componentWillReceiveProps (getDerivedStateFromProps)
   onChange(e) {
