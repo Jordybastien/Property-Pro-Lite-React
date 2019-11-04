@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 const PropertyBox = ({ id, image, status, price, state, city, type }) => {
   let checkedStatus;
-  if (status === "Available") {
+  if (status === "Available" || status === "available") {
     checkedStatus = "available";
   } else {
     checkedStatus = "sold";
@@ -39,7 +39,7 @@ PropertyBox.propTypes = {
   id: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired
