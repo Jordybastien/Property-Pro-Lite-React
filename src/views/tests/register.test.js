@@ -26,9 +26,12 @@ describe("Register View", () => {
     });
     it("should redirect user to the main page when he is logged in", () => {
         auth.isAuthenticated = true;
+        const event = { target: { value: 'this is a value', } };
         const component = shallow(
           <SignupComponent auth={auth} registerUser={jest.fn()} errors={errors} />
         );
+        const txtbox = component.find('#email');
+        txtbox.simulate('change',event);
         expect(component).toHaveLength(1);
       });
       it("Testing componentWillReceiveProps case error is a string", () => {

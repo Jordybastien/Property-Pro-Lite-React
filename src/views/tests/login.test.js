@@ -25,24 +25,43 @@ describe("Login View", () => {
   });
   it("should redirect user to the main page when he is logged in", () => {
     auth.isAuthenticated = true;
+    const event = { target: { value: "this is a value" } };
     const component = shallow(
       <LoginComponent auth={auth} loginUser={jest.fn()} errors={errors} />
     );
+    const txtbox = component.find("#email");
+    txtbox.simulate("change", event);
+    const test = component.instance();
     expect(component).toHaveLength(1);
   });
   it("Testing componentWillReceiveProps case error is a string", () => {
-    const component = shallow(<LoginComponent auth={auth} loginUser={jest.fn()} errors={errors}/>);
-    const nextPropsSuccess = {auth: { isAuthenticated: true }, errors: { error: 'Error Message'}};
+    const component = shallow(
+      <LoginComponent auth={auth} loginUser={jest.fn()} errors={errors} />
+    );
+    const nextPropsSuccess = {
+      auth: { isAuthenticated: true },
+      errors: { error: "Error Message" }
+    };
     component.setProps(nextPropsSuccess);
   });
   it("Testing componentWillReceiveProps case error is an object", () => {
-    const component = shallow(<LoginComponent auth={auth} loginUser={jest.fn()} errors={errors}/>);
-    const nextPropsSuccess = {auth: { isAuthenticated: true }, errors: { error: {}}};
+    const component = shallow(
+      <LoginComponent auth={auth} loginUser={jest.fn()} errors={errors} />
+    );
+    const nextPropsSuccess = {
+      auth: { isAuthenticated: true },
+      errors: { error: {} }
+    };
     component.setProps(nextPropsSuccess);
   });
   it("Testing componentWillReceiveProps case not authenticated", () => {
-    const component = shallow(<LoginComponent auth={auth} loginUser={jest.fn()} errors={errors}/>);
-    const nextPropsSuccess = {auth: { isAuthenticated: false }, errors: { error: {}}};
+    const component = shallow(
+      <LoginComponent auth={auth} loginUser={jest.fn()} errors={errors} />
+    );
+    const nextPropsSuccess = {
+      auth: { isAuthenticated: false },
+      errors: { error: {} }
+    };
     component.setProps(nextPropsSuccess);
   });
 });

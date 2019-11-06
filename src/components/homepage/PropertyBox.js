@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-const PropertyBox = ({ id, image, status, price, state, city, type }) => {
+export const PropertyBox = ({ id, image, status, price, state, city, type }) => {
   let checkedStatus;
   if (status === "Available" || status === "available") {
     checkedStatus = "available";

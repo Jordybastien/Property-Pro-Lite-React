@@ -14,7 +14,7 @@ class Homepage extends Component {
           <h1>Properties</h1>
           <h3>Here below are properties</h3>
           <Properties />
-          <a type="submit" href="/properties" className="button-1">
+          <a type="submit" href="/allProperties" className="button-1">
             Show all properties
           </a>
         </section>

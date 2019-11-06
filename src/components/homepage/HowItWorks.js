@@ -10,7 +10,7 @@ class HowItWorks extends Component {
           <div className="container">
             <div className="box">
               <div className="content">
-                <img src="./src/img/icons/choose.png" />
+                <img src="https://res.cloudinary.com/dodfpnbik/image/upload/v1573117640/choose_aiex6i.png" />
 
                 <h3>STEP 1</h3>
                 <p>
@@ -21,7 +21,7 @@ class HowItWorks extends Component {
             </div>
             <div className="box">
               <div className="content">
-                <img src="./src/img/icons/select.png" />
+                <img src="https://res.cloudinary.com/dodfpnbik/image/upload/v1573117639/select_hc489s.png" />
 
                 <h3>STEP 2</h3>
                 <p>
@@ -32,7 +32,7 @@ class HowItWorks extends Component {
             </div>
             <div className="box">
               <div className="content">
-                <img src="./src/img/icons/choose.png" />
+                <img src="https://res.cloudinary.com/dodfpnbik/image/upload/v1573117640/choose_aiex6i.png" />
 
                 <h3>STEP 3</h3>
                 <p>

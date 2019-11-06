@@ -5,7 +5,7 @@ const dotenv = require("dotenv-webpack");
 process.env.NODE_ENV = "production";
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   target: "web",
   devtool: "cheap-module-source-map",
   entry: "./src/index",

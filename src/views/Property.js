@@ -43,7 +43,7 @@ export class Property extends Component {
                       {" "}
                       <span className="info-item-col-1">
                         <img
-                          src="../src/img/icons/price.png"
+                          src="https://res.cloudinary.com/dodfpnbik/image/upload/v1572855020/price_xlrbdp.png"
                           className="infopic"
                         />
                         Price:{" "}
@@ -57,7 +57,7 @@ export class Property extends Component {
                       {" "}
                       <span className="info-item-col-1">
                         <img
-                          src="../src/img/icons/state.png"
+                          src="https://res.cloudinary.com/dodfpnbik/image/upload/v1572855021/state_hxq0gu.png"
                           className="infopic"
                         />
                         State:{" "}
@@ -71,7 +71,7 @@ export class Property extends Component {
                       {" "}
                       <span className="info-item-col-1">
                         <img
-                          src="../src/img/icons/city.png"
+                          src="https://res.cloudinary.com/dodfpnbik/image/upload/v1572855020/city_onuehv.png"
                           className="infopic"
                         />
                         City:
@@ -86,7 +86,7 @@ export class Property extends Component {
                       {" "}
                       <span className="info-item-col-1">
                         <img
-                          src="../src/img/icons/type.png"
+                          src="https://res.cloudinary.com/dodfpnbik/image/upload/v1572855020/type_mcs8vx.png"
                           className="infopic"
                         />
                         Type:
