@@ -1,4 +1,7 @@
+[![CircleCI](https://circleci.com/gh/Jordybastien/Property-Pro-Lite-React.svg?style=svg)](https://circleci.com/gh/Jordybastien/Property-Pro-Lite-React)
+[![Coverage Status](https://coveralls.io/repos/github/Jordybastien/Property-Pro-Lite-React/badge.svg?branch=develop)](https://coveralls.io/github/Jordybastien/Property-Pro-Lite-React?branch=develop)
+
 # Property-Pro-Lite-React
 Property Pro Lite is a platform where people can create and/or search properties for sale or rent.
+# Property-Pro-Lite
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/5878bbc3e7a3b05c04f4/maintainability)](https://codeclimate.com/github/Jordybastien/Property-Pro-Lite-React/maintainability)
