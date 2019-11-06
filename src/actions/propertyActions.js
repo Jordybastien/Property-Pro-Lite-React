@@ -1,10 +1,15 @@
 import axios from "axios";
-import { GET_ERRORS, GET_PROPERTIES, SINGLE_PROPERTY } from "./types";
+import {
+  GET_ERRORS,
+  GET_PROPERTIES,
+  SINGLE_PROPERTY,
+  PROPERTY_BY_TYPE
+} from "./types";
+import db from "../config/dbCall";
 
 const { BASE_URL } = process.env;
 export const fetchAllProperties = () => dispatch => {
-  axios
-    .get(`${BASE_URL}allProperties`)
+  db.get("allProperties")
     .then(res =>
       dispatch({
         type: GET_PROPERTIES,
@@ -20,8 +25,7 @@ export const fetchAllProperties = () => dispatch => {
 };
 
 export const getPropertyById = id => dispatch => {
-  axios
-    .get(`${BASE_URL}properties/${id}`)
+  db.get(`properties/${id}`)
     .then(res =>
       dispatch({
         type: SINGLE_PROPERTY,
@@ -29,4 +33,16 @@ export const getPropertyById = id => dispatch => {
       })
     )
     .catch(err => (window.location.href = "/"));
+};
+
+export const getPropertyByType = type => dispatch => {
+  axios
+    .get(`${BASE_URL}getProperty/${type}`)
+    .then(res =>
+      dispatch({
+        type: PROPERTY_BY_TYPE,
+        payload: res.data
+      })
+    )
+    .catch(err => (window.location.href = "/allProperties"));
 };

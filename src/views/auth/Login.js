@@ -7,7 +7,7 @@ import InputType from "../../components/common/InputType";
 import Button from "../../components/common/Button";
 import { loginUser } from "../../actions/authActions";
 
-class Login extends Component {
+export class Login extends Component {
   constructor() {
     super();
     this.state = {
@@ -84,7 +84,7 @@ class Login extends Component {
               <p className="line-on-side">
                 <span>Or</span>
               </p>
-              <Button type="submit" label="Signup" />
+              <Button type="submit" label="Signup" id="lgn-btn"/>
             </div>
           </div>
         </div>

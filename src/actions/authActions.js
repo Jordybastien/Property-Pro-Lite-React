@@ -2,11 +2,26 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER } from "./types";
 import setAuthToken from "../utils/setAuthToken";
+import db from "../config/dbCall";
 // Register User
 const { BASE_URL } = process.env;
 export const registerUser = userData => dispatch => {
-  axios
-    .post(`${BASE_URL}auth/signup`, userData)
+  db.post("auth/signup", userData)
+    .then(res => {
+      const { token } = res.data.data;
+      const response = authenticate(token);
+      console.log(response.data);
+      dispatch(setCurrentUser(response));
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+export const loginUser = userData => dispatch => {
+  db.post("auth/signin", userData)
     .then(res => {
       const { token } = res.data.data;
       const response = authenticate(token);
@@ -18,20 +33,6 @@ export const registerUser = userData => dispatch => {
         payload: err.response.data
       })
     );
-};
-export const loginUser = userData => dispatch => {
-    axios
-    .post(`${BASE_URL}auth/signin`, userData)
-    .then( res => {
-        const { token } = res.data.data;
-        const response = authenticate(token);
-        dispatch(setCurrentUser(response))
-    })
-    .catch(err =>
-        dispatch({
-            type: GET_ERRORS,
-            payload: err.response.data
-        }))
 };
 const authenticate = token => {
   // save to localStorage

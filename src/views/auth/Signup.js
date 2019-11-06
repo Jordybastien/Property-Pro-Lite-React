@@ -7,7 +7,7 @@ import InputType from "../../components/common/InputType";
 import Button from "../../components/common/Button";
 import { registerUser } from "../../actions/authActions";
 
-class Signup extends Component {
+export class Signup extends Component {
   constructor() {
     super();
     this.state = {

@@ -18,7 +18,6 @@ class Properties extends Component {
   }
   render() {
     const { properties } = this.props.properties;
-    console.log(properties);
     return (
       <React.Fragment>
         <div className="container">
