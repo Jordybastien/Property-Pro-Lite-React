@@ -6,7 +6,7 @@ import {
 } from "../actions/propertyActions";
 import Property from "../components/homepage/PropertyBox";
 
-class AllProperties extends Component {
+export class AllProperties extends Component {
   constructor() {
     super();
     this.state = {

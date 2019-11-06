@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getPropertyById } from "../actions/propertyActions";
 import Properties from "../components/homepage/Properties";
 
-class Property extends Component {
+export class Property extends Component {
   constructor() {
     super();
     this.state = {

@@ -1,0 +1,12 @@
+{
+    "status": 201,
+    "message": "Account created succesfully",
+    "data": {
+        "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzEsImVtYWlsIjoicnVndW1iaXJhQGdtYWlsLmNvbSIsImZpcnN0X25hbWUiOiJSdWd1bWJpcmEiLCJsYXN0X25hbWUiOiJKb3JkeSIsInBob25lTnVtYmVyIjoiMDc4NTYzNDc3OSIsImFkZHJlc3MiOiJLaWN1a2lybyIsImlzX2FkbWluIjpmYWxzZSwiaWF0IjoxNTczMDY0ODA3LCJleHAiOjE1NzMxNTEyMDd9.jVuM19OT10dJjFBNj4H9bJAJMONDypImsSpWbhIQDhA",
+        "firstname": "Rugumbira",
+        "lastname": "Jordy",
+        "email": "rugumbira@gmail.com",
+        "phoneNumber": "0785634779",
+        "address": "Kicukiro"
+    }
+}

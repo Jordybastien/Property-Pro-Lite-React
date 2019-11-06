@@ -27,6 +27,7 @@
     "dotenv-webpack": "^1.7.0",
     "file-loader": "^4.2.0",
     "jwt-decode": "^2.2.0",
+    "moxios": "^0.4.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-moment": "^0.9.6",
